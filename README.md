@@ -91,11 +91,10 @@
 
 ## orders テーブル
 
-| Column  | Type       | Options                                        |
-| ------- | ---------- | ---------------------------------------------- |
-| seller  | references | null: false, foreign_key: { to_table: :users } |
-| buyer   | references | null: false, foreign_key: { to_table: :users } |
-| item    | references | null: false, foreign_key: true                 |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 
