@@ -23,18 +23,19 @@
 
 ## items テーブル
 
-| Column                 | Type       | Options                        |
-| ---------------------- | ---------- | -----------                    |
-| name                   | string     | null: false                    |
-| image                  | string     | null: false                    |
-| price                  | integer    | null: false                    |
-| introduction           | text       | null: false                    |
-| category               | references | null: false, foreign_key: true |
-| item_condition         | references | null: false, foreign_key: true |
-| postage_payer          | references | null: false, foreign_key: true |
-| area                   | references | null: false, foreign_key: true |
-| preparation_day        | references | null: false, foreign_key: true |
-| user                   | references | null: false, foreign_key: true |
+| Column                 | Type       | Options                                        |
+| ---------------------- | ---------- | ---------------------------------------------- |
+| name                   | string     | null: false                                    |
+| image                  | string     | null: false                                    |
+| price                  | integer    | null: false                                    |
+| introduction           | text       | null: false                                    |
+| category_id            | integer    | null: false,                                   |
+| item_condition_id      | integer    | null: false,                                   |
+| postage_payer_id       | integer    | null: false,                                   |
+| area_id                | integer    | null: false,                                   |
+| preparation_day_id     | integer    | null: false,                                   |
+| seller                 | references | null: false, foreign_key: { to_table: :users } |
+| buyer                  | references | null: false, foreign_key: { to_table: :users } |
 
 ### Association
 
@@ -76,12 +77,12 @@
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| post_code       | integer(7) | null: false                    |
+| post_code       | string     | null: false                    |
 | prefecture_code | integer    | null: false                    |
 | city            | string     | null: false                    |
 | house_number    | integer    | null: false                    |
 | building_name   | string     |                                |
-| phone_number    | integer    | null: false                    |
+| phone_number    | string     | null: false                    |
 | user            | references | null: false, foreign_key: true | 
 
 ### Association
