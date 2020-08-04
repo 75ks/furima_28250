@@ -12,35 +12,35 @@
 | family_name_kana | string     | null: false                    |
 | first_name_kana  | string     | null: false                    |
 | birthday         | date       | null: false                    |
-| user             | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_many :items
 - has_many :favorites
 - has_many :comments
-- has_one  :addresses
+- has_many :orders
 
 ## items テーブル
 
-| Column                 | Type       | Options                                        |
-| ---------------------- | ---------- | ---------------------------------------------- |
-| name                   | string     | null: false                                    |
-| image                  | string     | null: false                                    |
-| price                  | integer    | null: false                                    |
-| introduction           | text       | null: false                                    |
-| category_id            | integer    | null: false,                                   |
-| item_condition_id      | integer    | null: false,                                   |
-| postage_payer_id       | integer    | null: false,                                   |
-| area_id                | integer    | null: false,                                   |
-| preparation_day_id     | integer    | null: false,                                   |
-| seller                 | references | null: false, foreign_key: { to_table: :users } |
-| buyer                  | references | null: false, foreign_key: { to_table: :users } |
+| Column                 | Type       | Options                        |
+| ---------------------- | ---------- | ------------------------------ |
+| name                   | string     | null: false                    |
+| image                  | string     | null: false                    |
+| price                  | integer    | null: false                    |
+| introduction           | text       | null: false                    |
+| category_id            | integer    | null: false,                   |
+| item_condition_id      | integer    | null: false,                   |
+| postage_payer_id       | integer    | null: false,                   |
+| area_id                | integer    | null: false,                   |
+| preparation_day_id     | integer    | null: false,                   |
+| user                   | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_many               :favorites
 - has_many               :comments
+- has_one                :address
+- has_one                :order
 - belongs_to             :user
 - belongs_to_active_hash :category
 - belongs_to_active_hash :item_condition
@@ -83,8 +83,21 @@
 | house_number    | integer    | null: false                    |
 | building_name   | string     |                                |
 | phone_number    | string     | null: false                    |
-| user            | references | null: false, foreign_key: true | 
+| item            | references | null: false, foreign_key: true | 
+
+### Association
+
+- belongs_to :item
+
+## orders テーブル
+
+| Column  | Type       | Options                                        |
+| ------- | ---------- | ---------------------------------------------- |
+| seller  | references | null: false, foreign_key: { to_table: :users } |
+| buyer   | references | null: false, foreign_key: { to_table: :users } |
+| item    | references | null: false, foreign_key: true                 |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :item
