@@ -6,14 +6,14 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  validates :password, presence: true, format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i, message: '半角英数字を使用してください'}
+  validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i, message: '半角英数字を使用してください' }
 
-  with_options presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: '全角文字を使用してください'} do
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '全角文字を使用してください' } do
     validates :family_name
     validates :first_name
   end
 
-  with_options presence: true, format: {with: /\A[ァ-ンー－]/, message: '全角カタカナを使用してください'} do
+  with_options presence: true, format: { with: /\A[ァ-ンー－]/, message: '全角カタカナを使用してください' } do
     validates :family_name_kana
     validates :first_name_kana
   end
