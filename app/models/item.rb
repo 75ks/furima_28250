@@ -8,6 +8,8 @@ class Item < ApplicationRecord
   belongs_to             :user
   has_one_attached       :image
 
+  validates :price, numericality: { only_integer: true, greater_than: 299, less_than:10000000}
+
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :item_condition_id
