@@ -65,42 +65,42 @@ describe Item do
       it 'category_idが1では登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'item_condition_idが1では登録できない' do
         @item.item_condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Item condition must be other than 1')
       end
       it 'postage_payer_idが1では登録できない' do
         @item.postage_payer_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postage payer must be other than 1")
+        expect(@item.errors.full_messages).to include('Postage payer must be other than 1')
       end
       it 'area_idが1では登録できない' do
         @item.area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Area must be other than 1")
+        expect(@item.errors.full_messages).to include('Area must be other than 1')
       end
       it 'preparation_day_idが1では登録できない' do
         @item.preparation_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Preparation day must be other than 1")
+        expect(@item.errors.full_messages).to include('Preparation day must be other than 1')
       end
       it 'priceが300以上ではない場合登録できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 299")
+        expect(@item.errors.full_messages).to include('Price must be greater than 299')
       end
       it 'priceが9,999,999以下ではない場合登録できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 10000000")
+        expect(@item.errors.full_messages).to include('Price must be less than 10000000')
       end
       it 'priceが数値ではない場合登録できない' do
         @item.price = 'test'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
