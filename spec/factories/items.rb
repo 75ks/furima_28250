@@ -8,5 +8,6 @@ FactoryBot.define do
     postage_payer_id   {Faker::Number.within(range: 2..3)}
     area_id            {Faker::Number.within(range: 2..48)}
     preparation_day_id {Faker::Number.within(range: 2..4)}
+    association        :user
   end
 end
