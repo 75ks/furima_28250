@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  
-  resources :items, only: [:new, :create, :show]
+  root 'items#index'
+  resources :items, only: [:index, :new, :create, :show]
 end
