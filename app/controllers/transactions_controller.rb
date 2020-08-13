@@ -12,10 +12,10 @@ class TransactionsController < ApplicationController
   private
 
   def correct_user
-    item = Item.find(params[:id])
-    if user_signed_in? && current_user.id == item.user_id
+    @item = Item.find(params[:id])
+    if user_signed_in? && current_user.id == @item.user_id
       redirect_to root_path
-    elsif user_signed_in? && Order.find_by(item_id: item.id).present?
+    elsif user_signed_in? && Order.find_by(item_id: @item.id).present?
       redirect_to root_path
     end
   end
