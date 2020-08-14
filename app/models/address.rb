@@ -1,4 +1,5 @@
 class Address < ApplicationRecord
+  belongs_to_active_hash :area
   belongs_to :item
 
   with_options presence: true do
