@@ -6,7 +6,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-
+    @order = Order.new(user_id: order_params[:user_id], item_id: order_params[:item_id])
   end
 
   private
@@ -18,5 +18,9 @@ class TransactionsController < ApplicationController
     elsif user_signed_in? && Order.find_by(item_id: @item.id).present?
       redirect_to root_path
     end
+  end
+
+  def order_params
+    params.permit(:token).merge(user_id: current_user.id, item_id: @item.id)
   end
 end
