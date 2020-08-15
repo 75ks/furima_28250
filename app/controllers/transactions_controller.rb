@@ -2,17 +2,16 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :correct_user, only: :index
   def index
-
   end
 
   def create
     @item = Item.find(params[:id])
     @order = OrderAddress.new(order_params)
-    
+
     if @order.valid?
       pay_item
       @order.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :index
     end
@@ -34,7 +33,7 @@ class TransactionsController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: order_params[:token],
