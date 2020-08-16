@@ -14,7 +14,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.building_name = nil
         expect(@order_address).to be_valid
       end
-
     end
 
     context '購入がうまくいかないとき' do
@@ -26,7 +25,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'area_idが1では登録できない' do
         @order_address.area_id = 1
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Area must be other than 1")
+        expect(@order_address.errors.full_messages).to include('Area must be other than 1')
       end
       it 'cityが空では登録できない' do
         @order_address.city = nil
@@ -46,17 +45,17 @@ RSpec.describe OrderAddress, type: :model do
       it 'post_codeにハイフンが存在しない場合登録できない' do
         @order_address.post_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Post code ハイフンを使用してください")
+        expect(@order_address.errors.full_messages).to include('Post code ハイフンを使用してください')
       end
       it 'phone_numberにハイフンが存在する場合登録できない' do
         @order_address.phone_number = '090-1234-5678'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number 11桁以内でハイフンは使用しないでください")
+        expect(@order_address.errors.full_messages).to include('Phone number 11桁以内でハイフンは使用しないでください')
       end
       it 'phone_numberが11桁以内ではない場合登録できない' do
         @order_address.phone_number = '090123456789'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number 11桁以内でハイフンは使用しないでください")
+        expect(@order_address.errors.full_messages).to include('Phone number 11桁以内でハイフンは使用しないでください')
       end
     end
   end
