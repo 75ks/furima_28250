@@ -23,9 +23,10 @@ app/assets/stylesheets/items/new.css %>
         </p>
         <%= f.file_field :image, id:"item-image" %>
       </div>
+      <div id="image-list"></div>
       <div class='item-img-content'>
         <% if @item.image.attached? %>
-          <%= image_tag @item.image, class: "item-img" %>
+          <%= image_tag @item.image, class: "item-img", id: "edit-image" %>
         <% end %>
       </div>
     </div>
