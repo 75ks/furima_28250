@@ -52,7 +52,7 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| comment | string     |                                |
+| comment | text       |                                |
 | user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
 
