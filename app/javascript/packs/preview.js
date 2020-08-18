@@ -13,10 +13,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 
     document.getElementById('item-image').addEventListener('change', function(e){
       const imageContent = document.querySelector('#image-list-child');
-      const editContent = document.querySelector('#edit-image')
-      if (editContent){
-        editContent.remove();
-      } else if (imageContent){
+      if (imageContent){
         imageContent.remove();
       };
       
