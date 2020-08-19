@@ -15,14 +15,12 @@ class OrderAddress
   phone_number = /\A\d{1,11}\z/
   validates :phone_number, presence: true, format: { with: phone_number, message: '11桁以内でハイフンは使用しないでください' }
 
-  validates :area_id, numericality: { other_than: 1 }
+  validates :area_id, numericality: { other_than: 1, message: 'を選択してください' }
 
   with_options presence: true do
-    validates :post_code
     validates :area_id
     validates :city
     validates :house_number
-    validates :phone_number
     validates :item_id
   end
 
