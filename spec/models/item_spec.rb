@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-    @item.image = fixture_file_upload('spec/image/121043663.png', 'image/png')
+    @item.images.attach(
+      fixture_file_upload('spec/image/121043663.png', 'image/png'),
+      fixture_file_upload('spec/image/images.png', 'image/png')
+    )
   end
 
   describe '商品出品' do
@@ -53,9 +56,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it 'imageが空では登録できない' do
-        @item.image = nil
+        @item.images = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include("Images can't be blank")
       end
       it 'introductionが空では登録できない' do
         @item.introduction = nil

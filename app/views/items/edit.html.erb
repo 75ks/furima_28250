@@ -21,11 +21,11 @@ app/assets/stylesheets/items/new.css %>
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :images, name: 'item[images][]', id:"item-image" %>
       </div>
-      <div class='item-img-content'>
-        <% if @item.image.attached? %>
-          <%= image_tag @item.image, class: "item-img" %>
+      <div id="image-list">
+        <% @item.images.each do |image| %>
+          <%= image_tag image, class: "item-img" %>
         <% end %>
       </div>
     </div>

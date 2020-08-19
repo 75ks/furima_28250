@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to_active_hash :preparation_day
   belongs_to             :user
-  has_one_attached       :image
+  has_many_attached      :images
   has_one                :order, dependent: :destroy
   has_one                :address, dependent: :destroy
 
@@ -22,7 +22,7 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :image
+    validates :images
     validates :price
     validates :introduction
     validates :category_id
