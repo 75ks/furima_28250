@@ -2,6 +2,7 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :correct_user, only: :index
   def index
+    @order = OrderAddress.new
   end
 
   def create

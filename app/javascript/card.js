@@ -26,12 +26,9 @@ if (document.URL.match( /transactions/ )) {
           document.getElementById("card-cvc").removeAttribute("name");
           document.getElementById("card-exp-month").removeAttribute("name");
           document.getElementById("card-exp-year").removeAttribute("name");
-
-          document.getElementById("charge-form").submit();
-          document.getElementById("charge-form").reset();
-        } else {
-          alert("error")
         }
+        document.getElementById("charge-form").submit();
+        document.getElementById("charge-form").reset();
       });
     });
   };
