@@ -6,6 +6,8 @@
     <h1 class='form-header-text'>
       会員情報入力
     </h1>
+    <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post%>
+    <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>
   </div>
   <div class='login-flash-message'>
     <%= flash[:notice] %>
