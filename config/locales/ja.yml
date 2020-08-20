@@ -18,6 +18,8 @@ ja:
         area_id: 発送元の地域
         preparation_day_id: 発送までの日数
         price: 価格
+      comment:
+        comment: コメント
   activemodel:
     attributes:
       order_address:
