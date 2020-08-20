@@ -31,6 +31,6 @@ class Item < ApplicationRecord
     validates :postage_payer_id
     validates :area_id
     validates :preparation_day_id
-    validates :user_id
+    validates :user
   end
 end
