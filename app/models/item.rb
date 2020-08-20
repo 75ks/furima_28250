@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   has_many_attached      :images
   has_one                :order, dependent: :destroy
   has_one                :address, dependent: :destroy
+  has_many               :comments, dependent: :destroy
 
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
 
