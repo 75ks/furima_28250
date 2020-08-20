@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       ActionCable.server.broadcast "comment_channel", content: @comment
-    else
-      render item_path(params[:id])
     end
   end
 
