@@ -11,7 +11,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品出品' do
     context '出品がうまくいくとき' do
-      it 'nameとpriceとimageとintroductionとcategory_idとitem_condition_idとpostage_payer_idとarea_idとpreparation_day_idが存在すれば登録できる' do
+      it 'nameとpriceとimagesとintroductionとcategory_idとitem_condition_idとpostage_payer_idとarea_idとpreparation_day_idが存在すれば登録できる' do
         expect(@item).to be_valid
       end
       it 'category_idが1以外の場合登録できる' do
@@ -55,7 +55,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("価格を入力してください")
       end
-      it 'imageが空では登録できない' do
+      it 'imagesが空では登録できない' do
         @item.images = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("画像を入力してください")
